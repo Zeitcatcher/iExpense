@@ -15,6 +15,7 @@
 		D95E4B352BF4326500183451 /* ExpenseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95E4B342BF4326500183451 /* ExpenseSection.swift */; };
 		D95E4B372BF432A200183451 /* View-ExpenseStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95E4B362BF432A200183451 /* View-ExpenseStyle.swift */; };
 		D97848772C002507003884C3 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97848762C002507003884C3 /* Expenses.swift */; };
+		D97848792C0025EF003884C3 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97848782C0025EF003884C3 /* ExpenseItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		D95E4B342BF4326500183451 /* ExpenseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSection.swift; sourceTree = "<group>"; };
 		D95E4B362BF432A200183451 /* View-ExpenseStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-ExpenseStyle.swift"; sourceTree = "<group>"; };
 		D97848762C002507003884C3 /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
+		D97848782C0025EF003884C3 /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				D95E4B242BF42E2000183451 /* iExpenseApp.swift */,
 				D95E4B262BF42E2000183451 /* ContentView.swift */,
+				D97848782C0025EF003884C3 /* ExpenseItem.swift */,
 				D97848762C002507003884C3 /* Expenses.swift */,
 				D95E4B342BF4326500183451 /* ExpenseSection.swift */,
 				D95E4B322BF42E7C00183451 /* AddExpenseView.swift */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D97848792C0025EF003884C3 /* ExpenseItem.swift in Sources */,
 				D97848772C002507003884C3 /* Expenses.swift in Sources */,
 				D95E4B352BF4326500183451 /* ExpenseSection.swift in Sources */,
 				D95E4B372BF432A200183451 /* View-ExpenseStyle.swift in Sources */,
