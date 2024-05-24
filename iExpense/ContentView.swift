@@ -14,36 +14,6 @@ struct ExpenseItem: Identifiable, Codable, Equatable {
     let amount: Double
 }
 
-@Observable
-class Expenses {
-    var items = [ExpenseItem]() {
-        didSet {
-            if let encoded = try? JSONEncoder().encode(items) {
-                UserDefaults.standard.set(encoded, forKey: "Items")
-            }
-        }
-    }
-
-    var personalItems: [ExpenseItem] {
-        items.filter { $0.type == "Personal" }
-    }
-
-    var businessItems: [ExpenseItem] {
-        items.filter { $0.type == "Business" }
-    }
-
-    init() {
-        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
-            if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
-                items = decodedItems
-                return
-            }
-        }
-
-        items = []
-    }
-}
-
 struct ContentView: View {
     @State private var expenses = Expenses()
     @State private var showingAddExpense = false
@@ -57,13 +27,13 @@ struct ContentView: View {
             .navigationTitle("iExpense")
             .toolbar {
                 NavigationLink {
-                    AddView(expenses: expenses)
+                    AddExpenseView(expenses: expenses)
                 } label: {
                     Label("Add Expense", systemImage: "plus")
                 }
             }
             .sheet(isPresented: $showingAddExpense) {
-                AddView(expenses: expenses)
+                AddExpenseView(expenses: expenses)
             }
         }
         .navigationBarBackButtonHidden()

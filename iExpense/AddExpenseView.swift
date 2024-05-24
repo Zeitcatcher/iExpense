@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddView: View {
+struct AddExpenseView: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var name = "New Expense"
@@ -36,7 +36,7 @@ struct AddView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
             .overlay(alignment: .bottom) {
-                Button("Cancerl") {
+                Button("Cancel") {
                     dismiss()
                 }
             }
@@ -58,6 +58,6 @@ struct AddView: View {
 }
 
 #Preview {
-    AddView(expenses: Expenses())
+    AddExpenseView(expenses: Expenses())
 }
 
