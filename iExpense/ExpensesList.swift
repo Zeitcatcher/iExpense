@@ -35,6 +35,16 @@ struct ExpensesList: View {
         }
     }
     
+    init(type: String = "All", sortOrder: [SortDescriptor<ExpenseItem>]) {
+        _expenses = Query(filter: #Predicate {
+            if type == "All" {
+                return true
+            } else {
+                return $0.type == type 
+            }
+        }, sort: sortOrder)
+    }
+    
     func removeItems(at offsets: IndexSet) {
         for offset in offsets {
             let item = expenses[offset]
@@ -46,6 +56,6 @@ struct ExpensesList: View {
 
 
 #Preview {
-    ExpensesList()
+    ExpensesList(sortOrder: [SortDescriptor(\ExpenseItem.name)])
         .modelContainer(for: ExpenseItem.self)
 }

@@ -15,7 +15,7 @@ struct AddExpenseView: View {
     @State private var type = "Personal"
     @State private var amount = 0.0
         
-    let types = ["Business", "Personal"]
+    static let types = ["Business", "Personal"]
     let localCurrency = Locale.current.currency?.identifier ?? "USD"
     
     var body: some View {
@@ -23,7 +23,7 @@ struct AddExpenseView: View {
             VStack {
                 Form {
                     Picker("Type", selection: $type) {
-                        ForEach(types, id: \.self) {
+                        ForEach(Self.types, id: \.self) {
                             Text($0)
                         }
                     }
