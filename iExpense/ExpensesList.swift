@@ -1,21 +1,21 @@
 //
-//  ExpenseSection.swift
+//  ExpensesList.swift
 //  iExpense
 //
 //  Created by Arseniy Oksenoyt on 5/14/24.
 //
 
+import SwiftData
 import SwiftUI
 
-struct ExpenseSection: View {
-    let title: String
-    let expenses: [ExpenseItem]
-    let deleteItems: (IndexSet) -> Void
-
+struct ExpensesList: View {
+    @Environment(\.modelContext) var modelContext
+    @Query private var expenses: [ExpenseItem]
+    
     let localCurrency = Locale.current.currency?.identifier ?? "USD"
-
+    
     var body: some View {
-        Section(title) {
+        List {
             ForEach(expenses) { item in
                 HStack {
                     VStack(alignment: .leading) {
@@ -31,13 +31,21 @@ struct ExpenseSection: View {
                         .style(for: item)
                 }
             }
-            .onDelete(perform: deleteItems)
+            .onDelete(perform: removeItems)
+        }
+    }
+    
+    func removeItems(at offsets: IndexSet) {
+        for offset in offsets {
+            let item = expenses[offset]
+            modelContext.delete(item)
+            
         }
     }
 }
 
+
 #Preview {
-    ExpenseSection(title: "Personal", expenses: []) { _ in
-        
-    }
+    ExpensesList()
+        .modelContainer(for: ExpenseItem.self)
 }
